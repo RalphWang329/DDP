@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information</title>
+    <link rel="stylesheet" href="/static/products.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Warwick Tea</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Main Page</a></li>
+                    <li><a href="/products_update">Add Products</a></li>
+                    <li><a href="/show_products">Inventory</a></li>
+                    <li><a href="/contact_us">Contact us</a></li>
+                    <li><a href="/login" class="login-btn">Log in</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="product-list-container">
+        <h2>Product Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product_name, info in products.items() %}
+                <tr>
+                    <td>{{ product_name }}</td>
+                    <td>{{ info['price'] }}</td>
+                    <td>{{ info['quantity'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Warwick Tea. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
